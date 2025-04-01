@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DPI Portal</title>
+  <!-- Ajusta la ruta del CSS a tu carpeta real -->
+  <link rel="stylesheet" href="/Nosotros/css/styles.css">
+</head>
+<body>
+
+<!-- ENCABEZADO -->
+<header class="header">
+
+  <!-- Sección superior (logo + DPI a la izquierda, accesibilidad + 911 + DPI MÁS CERCANO + BUSCAR a la derecha) -->
+  <div class="header-top">
+    <!-- Bloque Izquierdo: Logo, barra azul, texto “DPI” -->
+    <div class="left-brand">
+      <img class="dpi-logo" src="/pagina principal/Logo de la DPI/DPI.png" alt="Logo DPI">
+      <div class="yellow-bar"></div>
+      <div class="dpi-siglas">
+        <h2>DPI</h2>
+      </div>
+    </div>
+
+    <!-- Bloque Derecho: Accesibilidad, 911, Botón DPI MÁS CERCANO, Menú Hamburguesa -->
+    <div class="header-options">
+      <span class="accessibility" id="btnAccesibilidad">ACCESIBILIDAD</span>
+      <span class="contact" id="btnLlamada911">📞 911</span>
+      <!-- Botón que abre el modal de “DPI MÁS CERCANO” -->
+      <button id="btnSeleccionarDPI" class="location">📍 DPI MÁS CERCANO</button>
+
+      <!-- Menú hamburguesa -->
+      <div class="menu-container">
+        <div class="menu-button" onclick="toggleMenu()">☰ BUSCAR</div>
+        <nav class="menu" id="menu">
+          <ul>
+            <li><a href="/pagina principal/index.html">Inicio</a></li>
+            <li><a href="/personas desaparesidas/buscados/indexbuscados.html">Los Más Buscados</a></li>
+            <li><a href="#">Noticias</a></li>
+            <li><a href="#">Historias</a></li>
+            <li><a href="#">Blog de Noticias</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Comunicados de Prensa</a></li>
+            <li><a href="#">Acerca de</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de navegación principal (INICIO, NOSOTROS, SERVICIOS, etc.) -->
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="/pagina principal/index.html">INICIO</a></li>
+      <li><a href="/Nosotros/index.html">NOSOTROS</a></li>
+      <li><a href="/servicios/index.html">SERVICIOS</a></li>
+      <li><a href="/personas desaparesidas/index.html">DPI BUSCA</a></li>
+      <li><a href="/Noticias/Index.html">PRENSA</a></li>
+      <li>
+        <a href="https://www.interpol.int/es/Quienes-somos/Paises-miembros/Las-Americas/HONDURAS"
+           target="_blank">
+          INTERPOL
+        </a>
+      </li>
+    </ul>
+  </nav>
+ <!-- Barra amarilla debajo del header-top -->
+ <div class="top-bar"></div>
+
+  <!-- SECCIÓN / CONTENEDOR DONDE SE MOSTRARÁ EL MAPA INCRUSTADO -->
+<section id="mapSection">
+  <!-- Aquí se inyecta el iframe con la URL embed -->
+  <div id="mapContainer" style="width: 100%; max-width: 800px; margin: 20px auto;"></div>
+</section>
+
+<!-- MODAL OVERLAY para seleccionar DPI MÁS CERCANO -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-content">
+    <h2>Selecciona tu ubicación</h2>
+
+    <!-- Select de Departamento -->
+    <label for="selectDepartamento">Departamento:</label>
+    <select id="selectDepartamento">
+      <option value="">-- Selecciona --</option>
+      <!-- Se llena dinámicamente con JS -->
+    </select>
+
+    <!-- Select de Municipio -->
+    <label for="selectMunicipio">Municipio/Localidad:</label>
+    <select id="selectMunicipio" disabled>
+      <option value="">-- Primero elige un departamento --</option>
+      <!-- Se llena dinámicamente con JS -->
+    </select>
+
+    <!-- Botones del modal -->
+    <div class="modal-buttons">
+      <!-- BOTÓN 1: Si aún deseas abrir en Google Maps -->
+      <button id="btnVerMapa">Ver en Google Maps</button>
+
+      <!-- BOTÓN 2 (OPCIONAL): Mostrar en la misma página, 
+           usando la función mostrarMapa(url). 
+           Si lo deseas, inclúyelo.
+      <button id="btnMostrarMapa">Mostrar en la Página</button>
+      -->
+
+      <!-- Botón para cerrar el modal -->
+      <button id="btnCerrarModal">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<main class="main-section">
+  <!-- Encabezado principal -->
+  <div class="intro-text">
+    <h1>
+      La Dirección Policial de Investigaciones (DPI) es una institución especializada de<br>
+      carácter civil y jerarquizado, encargada de realizar investigaciones técnico-científicas <br>
+      en el marco de la ley. Su misión es esclarecer hechos delictivos, proteger los derechos<br>
+      y libertades de la ciudadanía y colaborar en la seguridad pública con alcance en todo el territorio nacional.
+    </h1>
+    <p class="ley">
+      &mdash; Ley Orgánica de la Policía Nacional de Honduras. Emitida mediante el Decreto No. 156-98 el 28 de mayo de 1998,<br>
+      publicada en el Diario Oficial La Gaceta el 31 de octubre de 2008. Nueva Ley Orgánica: En 2017, se aprobó una nueva versión <br>
+      de la ley mediante el Decreto Legislativo 18-2017, publicada en el Diario Oficial La Gaceta el 10 de octubre de 2017. 
+      Esta ley entró en vigencia en enero de 2018.
+    </p>
+  </div>
+
+  <!-- Contenedor principal para las columnas -->
+  <div class="columns-container">
+    
+    <!-- Columna izquierda + columna central -->
+    <div class="col-2">
+      <ul>
+        <li><a href="/Historia/index.html">Historia <span class="plus"></span></a></li>
+        <li><a href="">Competencias <span class="plus"></span></a></li>
+        <li><a href="">Normativa <span class="plus"></span></a></li>
+      </ul>
+    </div>
+    
+    <div class="col-2">
+      <ul>
+        <li><a href="/Territorio/index.html">Organización territorial<span class="plus"></span></a></li>
+        <li><a href="/Distincion de Grado/Escala de Oficiales.jpg">Distintivos de Grado<span class="plus"></span></a></li>
+        
+      </ul>
+    </div>
+
+    <!-- Columna derecha (aside) -->
+    <aside class="col-aside">
+      <h3>Más de tu policía</h3>
+      <ul>
+        <li><a href="/Vision/index.html">Director, Vision y Mision <span class="write-plus">&rarr;</span></a></li>
+        <li><a href="/Laboratorio/index.html">Laboratorios de Criminalistica <span class="write-plus">&rarr;</span></a></li>
+        <li><a href="/Himno Nacional/index.html">Himno Nacional <span class="write-plus">&rarr;</span></a></li>
+        <li><a href="/Himno  a la Policia/index.html">Himno de la Policía <span class="write-plus">&rarr;</span></a></li>
+        <li><a href="#">Galería de imágenes de eventos <span class="write-plus">&rarr;</span></a></li>
+        <li><a href="#">Marca registrada Policía Nacional <span class="write-plus">&rarr;</span></a></li>
+      </ul>
+    </aside>
+    
+  </div>
+</main>
+
+<section class="consejos-seguridad">
+  <div class="consejos-container fade-in-up">
+    <div class="consejos-text">
+      <h1>CONSEJOS DE SEGURIDAD</h1>
+      <h3>Planes y programas de prevención para los ciudadanos</h3>
+      <p>En estas páginas encontrarás algunos consejos ...</p>
+      <button class="btn-blue">Ver todos los consejos</button>
+    </div>
+    <aside class="ayuda-block">
+      <h4>¿Podemos ayudarte?</h4>
+      <p>Contacta con nosotros para obtener más información ...</p>
+    </aside>
+  </div>
+</section>
+
+<section class="ayuda-importante">
+  <div class="ayuda-container fade-in-up">
+    <h2>TU AYUDA ES IMPORTANTE</h2>
+
+    <div class="cards-container">
+      
+      <!-- Tarjeta 1 -->
+      <article class="ayuda-card">
+        <img src="/Nosotros/Ciudad Mujer/Ciudad Mujer dos.jpg" alt="Imagen Unidad de Atención" />
+        <h3>Ciudad Mujer</h3>
+        <p>
+          Somos la unidad de la Policía Nacional especializada en la prevención y la investigación
+          de las infracciones penales sobre violencia de género, doméstica y sexual.
+        </p>
+        <a href="https://www.ciudadmujer.gob.hn/" target="_blank">
+          <button class="btn-white">Saber más</button>
+      </a>
+      
+      </article>
+
+      <!-- Tarjeta 2 -->
+      <article class="ayuda-card">
+        <img src="/Nosotros/Ciudad Mujer/images.jfif" alt="Trata de seres humanos" />
+        <h3>MAIE/DPI</h3>
+        <p>
+          La trata de personas es una de las formas de esclavitud del siglo XXI y es uno de los
+          delitos más comunes y que mueve mayor cantidad de dinero en todo el mundo.
+        </p>
+        <a href="https://www.mp.hn/publicaciones/area/maie-modulo-de-atencion-integral-especializado/" target="_blank">
+          <button class="btn-white">Saber más</button>
+      </a>
+      
+      </article>
+
+      <!-- Bloque lateral (aside) -->
+      <aside class="personas-aside">
+        <h4>AYÚDANOS A ENCONTRAR ESTAS PERSONAS</h4>
+        <a href="/personas desaparesidas/buscados/indexbuscados.html" class="btn-personas btn-rojo" target="_blank">Personas buscadas</a>
+        <a href="/personas desaparesidas/index.html" class="btn-personas btn-azul" target="_blank">Personas desaparecidas</a>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<main class="main-content">
+  <div class="main-top">
+    <!-- Imagen de ejemplo. Ajusta tu ruta real. -->
+    <img src="/pagina principal/Logo de la DPI/DPI.png" alt="DNI Logo" class="float-left">
+    <div>
+      <h2>AVISOS IMPORTANTE</h2>
+      <p> Policía Nacional</p>
+    </div>
+  </div>
+
+  <div class="avisos">
+    <h3>Avisos Citas Para Registro de Armas</h3>
+    <p>
+      Se recuerda a todos los ciudadanos que deben acudir a su cita puntualmente, y también consultar los requisitos
+       necesarios para el tipo de tramitación solicitada (foto actualizada, documentación, autorizaciones, etc.).
+    </p>
+  </div>
+
+  <div class="avisos">
+    <h3>Avisos Limpieza de Antecedentes</h3>
+    <p>
+      Las Oficinas de  <strong>Secretaria Ejecutiva</strong> para solicitar <strong>la Limpieza de los Antecedentes</strong> no cuenta Con Tramitadores 
+     
+    </p>
+  </div>
+
+  <div class="avisos">
+    <h3>Recomendaciones</h3>
+    <p>
+      <strong>uno</strong> 
+    </p>
+    <p>
+       <strong>dos</strong>
+    </p>
+  </div>
+</main>
+
+ 
+
+<!-- Footer principal -->
+<footer class="footer-area">
+
+  <!-- Parte superior del footer (información en columnas) -->
+  <div class="footer-top">
+    <!-- Columna 1 -->
+    <div class="footer-col">
+      <h4>Oficina Principal</h4>
+      <p>Colonia Kennedy, Primera entrada</p>
+      <h5>Número telefónico</h5>
+      <p>(+504)XXXX-XXXX</p>
+      <h5>Síguenos en:</h5>
+      <div class="social-icons-inline">
+        <a href="#"><img src="/pagina principal/iconos/FACE1.png" alt="Facebook"></a>
+        <a href="#"><img src="/pagina principal/iconos/twitter_5969020.png" alt="X (Twitter)"></a>
+        <a href="#"><img src="/pagina principal/iconos/instagram_2111463.png" alt="Instagram"></a>
+        <a href="#"><img src="/pagina principal/iconos/youtube_2504965.png" alt="YouTube"></a>
+        <a href="#"><img src="/pagina principal/iconos/tik-tok.png" alt="TikTok"></a>
+      </div>
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="footer-col">
+      <h4>Links de interés</h4>
+      <ul>
+        <li><a href="#">Mapa del sitio</a></li>
+        <li><a href="#">Requisitos para Registro Balístico</a></li>
+        <li><a href="#">Departamento de Denuncia</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="footer-col">
+      <h4>Más enlaces</h4>
+      <ul>
+        <li><a href="#">Ministerio Público</a></li>
+        <li><a href="#">Policía Nacional</a></li>
+        <li><a href="#">Centro Integrado</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Parte inferior del footer -->
+  <div class="footer-bottom">
+    <p>
+      www.DPI.gob | Condiciones de uso y políticas de privacidad del sitio | Dirección Policial de Investigaciones
+    </p>
+  </div>
+
+  <!-- Barra flotante de redes (vertical a la derecha) -->
+   
+  <div class="floating-social-bar">
+    <!-- Facebook -->
+    <a href="#" class="social-btn fb">
+      <img src="/pagina principal/iconos/FACE1.png" alt="Facebook">
+    </a>
+    
+    <!-- X (Twitter) -->
+    <a href="#" class="social-btn x">
+      <img src="/pagina principal/iconos/twitter_5969020.png" alt="X (Twitter)">
+    </a>
+    
+    <!-- Instagram -->
+    <a href="#" class="social-btn ig">
+      <img src="/pagina principal/iconos/instagram_2111463.png" alt="Instagram">
+    </a>
+    
+    <!-- YouTube -->
+    <a href="#" class="social-btn yt">
+      <img src="/pagina principal/iconos/youtube_2504965.png" alt="YouTube">
+    </a>
+    
+    <!-- TikTok -->
+    <a href="#" class="social-btn tk">
+      <img src="/pagina principal/iconos/tik-tok.png" alt="TikTok">
+    </a>
+    
+    <!-- Botón para cerrar la barra -->
+    <a href="#" class="social-btn close">
+      ✕
+    </a>
+  </div>
+  
+</footer>
+
+<!-- Scripts (ajusta la ruta si es /institucion o /intitucion) -->
+<script src="/Nosotros/jv/script.js"></script>
+</body>
+</html>

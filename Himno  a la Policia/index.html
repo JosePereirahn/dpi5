@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>DPI Portal</title>
+  <!-- Vincula tu CSS principal -->
+  <link rel="stylesheet" href="/Himno  a la Policia/css/styles.css">
+</head>
+<body>
+
+<!-- ENCABEZADO -->
+<header class="header">
+
+  <!-- Sección superior (logo + DPI a la izquierda, accesibilidad + 911 + DPI MÁS CERCANO + BUSCAR a la derecha) -->
+  <div class="header-top">
+    <!-- Bloque Izquierdo: Logo, barra azul, texto “DPI” -->
+    <div class="left-brand">
+      <img class="dpi-logo" src="/pagina principal/Logo de la DPI/DPI.png" alt="Logo DPI">
+      <div class="yellow-bar"></div>
+      <div class="dpi-siglas">
+        <h2>DPI</h2>
+        <span class="dpi-full-name">DIRECCION POLICIAL DE INVESTIGACIONES</span>
+      </div>
+    </div>
+
+    <!-- Bloque Derecho: Accesibilidad, 911, Botón DPI MÁS CERCANO, Menú Hamburguesa -->
+    <div class="header-options">
+      <span class="accessibility" id="btnAccesibilidad">ACCESIBILIDAD</span>
+      <span class="contact" id="btnLlamada911">📞 911</span>
+      <!-- Botón que abre el modal de “DPI MÁS CERCANO” -->
+      <button id="btnSeleccionarDPI" class="location">📍 DPI MÁS CERCANO</button>
+
+      <!-- Menú hamburguesa -->
+      <div class="menu-container">
+        <div class="menu-button" onclick="toggleMenu()">☰ BUSCAR</div>
+        <nav class="menu" id="menu">
+          <ul>
+            <li><a href="/pagina principal/index.html">Inicio</a></li>
+            <li><a href="/personas desaparesidas/buscados/indexbuscados.html">Los Más Buscados</a></li>
+            <li><a href="#">Noticias</a></li>
+            <li><a href="#">Historias</a></li>
+            <li><a href="#">Blog de Noticias</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Comunicados de Prensa</a></li>
+            <li><a href="#">Acerca de</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de navegación principal (INICIO, NOSOTROS, SERVICIOS, etc.) -->
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="/pagina principal/index.html">INICIO</a></li>
+      <li><a href="/Nosotros/index.html">NOSOTROS</a></li>
+      <li><a href="/servicios/index.html">SERVICIOS</a></li>
+      <li><a href="/personas desaparesidas/index.html">DPI BUSCA</a></li>
+      <li><a href="/Noticias/Index.html">PRENSA</a></li>
+      <li>
+        <a href="https://www.interpol.int/es/Quienes-somos/Paises-miembros/Las-Americas/HONDURAS"
+           target="_blank">
+          INTERPOL
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Barra amarilla debajo del header-top -->
+  <div class="top-bar"></div>
+
+  <!-- SECCIÓN / CONTENEDOR DONDE SE MOSTRARÁ EL MAPA INCRUSTADO -->
+  <section id="mapSection">
+    <div id="mapContainer" style="width: 100%; max-width: 800px; margin: 20px auto;"></div>
+  </section>
+
+  <!-- MODAL OVERLAY para seleccionar DPI MÁS CERCANO -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+      <h2>Selecciona tu ubicación</h2>
+
+      <label for="selectDepartamento">Departamento:</label>
+      <select id="selectDepartamento">
+        <option value="">-- Selecciona --</option>
+      </select>
+
+      <label for="selectMunicipio">Municipio/Localidad:</label>
+      <select id="selectMunicipio" disabled>
+        <option value="">-- Primero elige un departamento --</option>
+      </select>
+
+      <div class="modal-buttons">
+        <button id="btnVerMapa">Ver en Google Maps</button>
+        <button id="btnCerrarModal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<!-- SECCIÓN 1: MENSAJE DEL DIRECTOR -->
+<section id="section1">
+  <div class="content-wrap">
+    <h1>HIMNO A LA POLICÍA</h1><br>
+    <h1>CORO</h1>
+    <p>
+      CON LA LEY POR ESTANDARTE<br>
+Y EL VALOR POR COMPAÑERO<br>
+MARCHAREMOS ADELANTE<br>
+CON EL ORGULLO EN EL PECHO<br>
+DE SER GUARDIANES DEL ORDEN,<br>
+LA JUSTICIA Y EL DERECHO<br>
+    </p><br>
+    <p>
+      EL LAUREL DE LA VICTORIA<br>
+SERÁ PREMIO MERECIDO<br>
+EN EL DUELO CON LA SOMBRA<br>
+DONDE SE NUTRE EL DELITO<br>
+Y SERÁ NUESTRA LA GLORIA<br>
+DEL DEBER SIEMPRE CUMPLIDO<br>
+    </p><br>
+    <p>
+      DESCANSAD PUEBLO HERMANO<br>
+QUE TU SUEÑO VELAREMOS<br>
+CON EL CELO VIGILANTE<br>
+DEL QUE HA JURADO SU EMPEÑO<br>
+DE SACRIFICAR SU SANGRE<br>
+PARA PROTEGER SU PUEBLO<br>
+    </p><br>
+    <h1>CORO</h1>
+    <p>
+      CON LA LEY POR ESTANDARTE<br>
+Y EL VALOR POR COMPAÑERO<br>
+MARCHAREMOS ADELANTE<br>
+CON EL ORGULLO EN EL PECHO<br>
+DE SER GUARDIANES DEL ORDEN,<br>
+LA JUSTICIA Y EL DERECHO<br>
+  </div>
+</section>
+
+<!-- FOOTER PRINCIPAL -->
+<footer class="footer-area">
+  <!-- Parte superior (información en columnas) -->
+  <div class="footer-top">
+    <!-- Columna 1 -->
+    <div class="footer-col">
+      <h4>Oficina Principal</h4>
+      <p>Colonia Kennedy, Primera entrada</p>
+      <h5>Número telefónico</h5>
+      <p>(+504)XXXX-XXXX</p>
+      <h5>Síguenos en:</h5>
+      <div class="social-icons-inline">
+        <a href="https://www.facebook.com/dpihonduras/">
+          <img src="/pagina principal/iconos/FACE1.png" alt="Facebook">
+        </a>
+        <a href="https://x.com/dpi_honduras">
+          <img src="/pagina principal/iconos/twitter_5969020.png" alt="X (Twitter)">
+        </a>
+        <a href="#"><img src="/pagina principal/iconos/instagram_2111463.png" alt="Instagram"></a>
+        <a href="#"><img src="/pagina principal/iconos/youtube_2504965.png" alt="YouTube"></a>
+        <a href="#"><img src="/pagina principal/iconos/tik-tok.png" alt="TikTok"></a>
+      </div>
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="footer-col">
+      <h4>Links de interés</h4>
+      <ul>
+        <li>
+          <a href="https://www.google.com/maps/search/Tegucigalpa+dpi/@14.0773441,-87.2068558,14z?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D">
+            Mapa del sitio
+          </a>
+        </li>
+        <li><a href="#">Requisitos para Registro Balístico</a></li>
+        <li><a href="#">Departamento de Denuncia</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="footer-col">
+      <h4>Más enlaces</h4>
+      <ul>
+        <li><a href="https://www.mp.hn/">Ministerio Público</a></li>
+        <li><a href="https://policianacional.gob.hn/">Policía Nacional</a></li>
+        <li><a href="#">Centro Integrado</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Parte inferior -->
+  <div class="footer-bottom">
+    <p>
+      www.DPI.gob | Condiciones de uso y políticas de privacidad del sitio | Dirección Policial de Investigaciones
+    </p>
+  </div>
+
+  <!-- Barra flotante de redes (vertical, cierra con la X) -->
+  <div class="floating-social-bar">
+    <a href="https://www.facebook.com/dpihonduras/" class="social-btn fb">
+      <img src="/pagina principal/iconos/FACE1.png" alt="Facebook">
+    </a>
+    <a href="https://x.com/dpi_honduras" class="social-btn x">
+      <img src="/pagina principal/iconos/twitter_5969020.png" alt="X (Twitter)">
+    </a>
+    <a href="#" class="social-btn ig">
+      <img src="/pagina principal/iconos/instagram_2111463.png" alt="Instagram">
+    </a>
+    <a href="#" class="social-btn yt">
+      <img src="/pagina principal/iconos/youtube_2504965.png" alt="YouTube">
+    </a>
+    <a href="#" class="social-btn tk">
+      <img src="/pagina principal/iconos/tik-tok.png" alt="TikTok">
+    </a>
+    <!-- Botón de cerrar barra flotante -->
+    <a href="#" class="social-btn close">✕</a>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/Himno  a la Policia/jv/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>DPI Portal</title>
+  <!-- Vincula tu CSS principal -->
+  <link rel="stylesheet" href="/Laboratorio/css/styles.css">
+</head>
+<body>
+
+<!-- ENCABEZADO -->
+<header class="header">
+
+  <!-- Sección superior (logo + DPI a la izquierda, accesibilidad + 911 + DPI MÁS CERCANO + BUSCAR a la derecha) -->
+  <div class="header-top">
+    <!-- Bloque Izquierdo: Logo, barra azul, texto “DPI” -->
+    <div class="left-brand">
+      <img class="dpi-logo" src="/pagina principal/Logo de la DPI/DPI.png" alt="Logo DPI">
+      <div class="yellow-bar"></div>
+      <div class="dpi-siglas">
+        <h2>DPI</h2>
+        <span class="dpi-full-name">DIRECCION POLICIAL DE INVESTIGACIONES</span>
+      </div>
+    </div>
+
+    <!-- Bloque Derecho: Accesibilidad, 911, Botón DPI MÁS CERCANO, Menú Hamburguesa -->
+    <div class="header-options">
+      <span class="accessibility" id="btnAccesibilidad">ACCESIBILIDAD</span>
+      <span class="contact" id="btnLlamada911">📞 911</span>
+      <!-- Botón que abre el modal de “DPI MÁS CERCANO” -->
+      <button id="btnSeleccionarDPI" class="location">📍 DPI MÁS CERCANO</button>
+
+      <!-- Menú hamburguesa -->
+      <div class="menu-container">
+        <div class="menu-button" onclick="toggleMenu()">☰ BUSCAR</div>
+        <nav class="menu" id="menu">
+          <ul>
+            <li><a href="/pagina principal/index.html">Inicio</a></li>
+            <li><a href="/personas desaparesidas/buscados/indexbuscados.html">Los Más Buscados</a></li>
+            <li><a href="#">Noticias</a></li>
+            <li><a href="#">Historias</a></li>
+            <li><a href="#">Blog de Noticias</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Comunicados de Prensa</a></li>
+            <li><a href="#">Acerca de</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de navegación principal (INICIO, NOSOTROS, SERVICIOS, etc.) -->
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="/pagina principal/index.html">INICIO</a></li>
+      <li><a href="/Nosotros/index.html">NOSOTROS</a></li>
+      <li><a href="/servicios/index.html">SERVICIOS</a></li>
+      <li><a href="/personas desaparesidas/index.html">DPI BUSCA</a></li>
+      <li><a href="/Noticias/Index.html">PRENSA</a></li>
+      <li>
+        <a href="https://www.interpol.int/es/Quienes-somos/Paises-miembros/Las-Americas/HONDURAS"
+           target="_blank">
+          INTERPOL
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Barra amarilla debajo del header-top -->
+  <div class="top-bar"></div>
+
+  <!-- SECCIÓN / CONTENEDOR DONDE SE MOSTRARÁ EL MAPA INCRUSTADO -->
+  <section id="mapSection">
+    <div id="mapContainer" style="width: 100%; max-width: 800px; margin: 20px auto;"></div>
+  </section>
+
+  <!-- MODAL OVERLAY para seleccionar DPI MÁS CERCANO -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+      <h2>Selecciona tu ubicación</h2>
+
+      <label for="selectDepartamento">Departamento:</label>
+      <select id="selectDepartamento">
+        <option value="">-- Selecciona --</option>
+      </select>
+
+      <label for="selectMunicipio">Municipio/Localidad:</label>
+      <select id="selectMunicipio" disabled>
+        <option value="">-- Primero elige un departamento --</option>
+      </select>
+
+      <div class="modal-buttons">
+        <button id="btnVerMapa">Ver en Google Maps</button>
+        <button id="btnCerrarModal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<!-- SECCIÓN 1: Laboratorio -->
+<section id="section1">
+  <div class="content-wrap">
+    <h1>Laboratorio de Criminalística de Honduras</h1>
+
+    <p>
+      El Laboratorio de Criminalística de Honduras representa un hito en la investigación criminal del país, elevando los estándares en la lucha contra la impunidad y el crimen. 
+      La inauguración de este moderno complejo científico marca un avance significativo en la tecnología forense, permitiendo a la Dirección Policial de Investigaciones (DPI) 
+      mejorar sus procesos de análisis y recolección de pruebas.
+    </p>
+    <p>
+      Con una infraestructura de cuatro pisos y equipado con áreas especializadas como Química Forense, Balística, Dactiloscopía, Fotografía y Video Forense, el laboratorio ofrece 
+      una capacidad de análisis sin precedentes en Centroamérica. Además, su personal altamente capacitado en países como Chile, Estados Unidos, Rusia y Colombia garantiza el manejo 
+      profesional de la evidencia criminal.
+    </p>
+    <p>
+      Este esfuerzo refuerza la investigación científica en Honduras y contribuye significativamente a la judicialización efectiva de los casos. Según expertos en seguridad y criminología, 
+      el laboratorio agilizará la resolución de delitos mediante un procesamiento inmediato y preciso de las pruebas recolectadas en las escenas del crimen.
+    </p> 
+    <p>
+      La implementación de esta tecnología de punta refuerza la transparencia en la administración de justicia y fortalece la confianza de la población en las instituciones de seguridad. 
+      Con este paso, Honduras se coloca a la vanguardia en investigación criminal en la región, dotando a la Policía Nacional de herramientas indispensables para combatir la criminalidad 
+      de manera efectiva y profesional.
+    </p>
+  </div>
+</section>
+
+<!-- PRIMER SEPARADOR DE 1 PULGADA (ANTES DE VISIÓN) -->
+<hr class="one-inch-separator">
+
+<!-- SECCIÓN 2: Laboratorio QUIMICA FORENSE-->
+<section id="section2">
+  <div class="content-wrap">
+    <h1>LABORATORIO DE QUIMICA FORENSE</h1>
+  <ol >
+      <li>Análisis para identificación de sustancias psicoactivas (drogas) y material vegetal ilícito.</li>
+      <li>Análisis para identificación de precursores químicos para la elaboración de sustancias psicoactivas (Drogas).</li>
+      <li>Análisis para la identificación cualitativa de sustancias explosivas y post explosión, así como de precursores químicos para la elaboración de explosivos.</li>
+      <li>Análisis para identificación de sustancias químicas desconocidas.</li>
+      <li>Análisis comparativo de pintura.</li>
+      <li>Análisis y cuantificación de alcohol.</li>
+      <li>Análisis para la identificación de hidrocarburos.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- Segundo SEPARADOR DE 1 PULGADA (LABORATORIO DE BALISTICA FORENSE) -->
+<hr class="one-inch-separator">
+
+<!-- SECCIÓN 3: LABORATORIO DE BALISTICA FORENSE-->
+<section id="section3">
+  <div class="content-wrap">
+    <h1>LABORATORIO DE BALISTICA FORENSE</h1>
+  <ol >
+      <li>Descripción técnica de las evidencias balísticas.</li>
+      <li>Estado de funcionamiento de las armas de fuego y otros elementos.</li>
+      <li>Cotejo microscópico de casquillos y balas.</li>
+      <li>Ingreso al sistema integrado de identificación balística IBIS.</li>
+      <li>Materialización de trayectorias balísticas.</li>
+      <li>Estado de conservación y funcionamiento de cartuchos.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- Tercer  SEPARADOR DE 1 PULGADA (UNIDAD DE PROCESAMIENTO DE LA ESCENA DEL DELITO) -->
+<hr class="one-inch-separator">
+
+<!-- SECCIÓN 4: UNIDAD DE PROCESAMIENTO DE LA ESCENA DEL DELITO-->
+<section id="section4">
+  <div class="content-wrap">
+    <h1>UNIDAD DE PROCESAMIENTO DE LA ESCENA DEL DELITO</h1>
+  <ol >
+      <li>Procesamientos de escenas en el lugar de los hechos que involucren delitos contra la vida.</li>
+      <li>Procesamiento de escena en el lugar de los hechos en casos de delitos varios.</li>
+      <li>Reconstrucción de hechos.</li>
+      <li>Aplicación de prueba orientativa de quimioluminiscencia.</li>
+      <li>Exhumaciones.</li>
+      <li>Inspección a Vehículo.</li>
+      <li>Toma de Muestra de Residuos de Disparo.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- Cuarto  SEPARADOR DE 1 PULGADA (UNIDAD DE FOTOGRAFÍA FORENSE) -->
+<hr class="one-inch-separator">
+
+<!-- SECCIÓN 5: UNIDAD DE FOTOGRAFÍA FORENSE-->
+<section id="section5">
+  <div class="content-wrap">
+    <h1>UNIDAD DE FOTOGRAFÍA FORENSE</h1>
+  <ol >
+      <li>Fijación fotográfica al Lugar de los hechos e indicios.</li>
+      <li>Fijación fotográfica en diligencias con reactivos fluorescente y luces forenses.</li>
+      <li>Fijación fotográfica en Exhumaciones.</li>
+      <li>Fijación fotográfica en reconstrucciones de hechos.</li>
+      <li>Fijación fotográfica de indicios remitidos a los laboratorios de criminalística.</li>
+      <li>Fijación fotográfica en Allanamientos.</li>
+      <li>Fijación fotográfica a Trayectoria Balística.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- Quinto SEPARADOR DE 1 PULGADA (UNIDAD DE TOPOGRAFÍA FORENSE) -->
+<hr class="one-inch-separator">
+
+<!-- SECCIÓN 6: UNIDAD DE TOPOGRAFÍA FORENSE-->
+<section id="section6">
+  <div class="content-wrap">
+    <h1>UNIDAD DE TOPOGRAFÍA FORENSE</h1>
+  <ol >
+      <li>Fijaciones topográficas al lugar de los hechos e indicios.</li>
+      <li>Fijación de escenas en 3D para análisis e interpretación de un hecho.</li>
+      <li>Fijaciones topográficas en casos de exhumaciones.</li>
+      <li>Fijaciones topográficas en casos de reconstrucción de hechos.</li>
+      <li>Fijación topográfica en trayectorias balísticas.</li>
+    
+    </ol>
+  </div>
+</section>
+
+<!-- septo SEPARADOR DE 1 PULGADA (LABORATORIO DE INFORMÁTICA FORENSE) -->
+<hr class="one-inch-separator">
+
+<!-- SECCIÓN 7: LABORATORIO DE INFORMÁTICA FORENSE-->
+<section id="section7">
+  <div class="content-wrap">
+    <h1>LABORATORIO DE INFORMÁTICA FORENSE</h1>
+  <ol >
+      <li>Extracción de Información de Equipos Terminales Móviles.</li>
+      <li>Adquisición de Imágenes Forenses</li>
+      <li>Tratamiento y procesamiento de evidencia digital</li>
+      <li>Recolección de datos volátiles</li>
+    </ol>
+  </div>
+</section>
+
+<!-- septimo SEPARADOR DE 1 PULGADA (LABORATORIO DE VIDEO FORENSE) -->
+<hr class="one-inch-separator">
+
+<!-- SECCIÓN 8: LABORATORIO DE VIDEO FORENSE-->
+<section id="section8">
+  <div class="content-wrap">
+    <h1>LABORATORIO DE VIDEO FORENSE</h1>
+  <ol >
+      <li>Extracción de video de circuito cerrado de televisión CCTV.</li>
+      <li>Búsquedas y seguimientos de información de casos en el sistema de monitoreo del 911.</li>
+      <li>Análisis de Video.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- septimo SEPARADOR DE 1 PULGADA (LABORATORIO DE DACTILOSCOPIA FORENSE) -->
+<hr class="one-inch-separator">
+
+<!-- SECCIÓN 9: LABORATORIO DE DACTILOSCOPIA FORENSE-->
+<section id="section9">
+  <div class="content-wrap">
+    <h1>LABORATORIO DE DACTILOSCOPIA FORENSE</h1>
+  <ol >
+      <li>Toma de registros dactilares.</li>
+      <li>Búsqueda en el sistema automatizado de identificación dactilar AFIS.</li>
+      <li>Identificación de cadáveres por medio de los dibujos dactilares.</li>
+      <li>Toma de registros dactilares para residencia en el exterior.</li>
+      <li>Inspección técnica a documentos con impresiones dactilares.</li>
+      <li>Gestión de documentación a través del registro nacional de las personas.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- optavo SEPARADOR DE 1 PULGADA (UNIDAD DE ANTIEXPLOSIVOS) -->
+<hr class="one-inch-separator">
+
+<!-- SECCIÓN 10: UNIDAD DE ANTIEXPLOSIVOS-->
+<section id="section10">
+  <div class="content-wrap">
+    <h1>UNIDAD DE ANTIEXPLOSIVOS</h1>
+  <ol >
+      <li>Neutralización o desactivación de artefactos explosivos.</li>
+      <li>Destrucción de artefactos explosivos.</li>
+      <li>Investigación posterior a una explosión.</li>
+      
+    </ol>
+  </div>
+</section>
+
+<!-- noceavo SEPARADOR DE 1 PULGADA (UNIDAD DE RETRATO HABLADO) -->
+<hr class="one-inch-separator">
+
+<!-- SECCIÓN 11: UNIDAD DE RETRATO HABLADOS-->
+<section id="section11">
+  <div class="content-wrap">
+    <h1>UNIDAD DE RETRATO HABLADO</h1>
+  <ol >
+      <li>Técnica de retrato hablado a mano alzada.Retrato hablado utilizando faces 4.0.</li>
+      <li>Retrato hablado utilizando faces 4.0.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- doceavo SEPARADOR DE 1 PULGADA (LABORATORIO DE DOCUMENTOLOGIA FORENSE) -->
+<hr class="one-inch-separator">
+
+<!-- SECCIÓN 12: LABORATORIO DE DOCUMENTOLOGIA FORENSE-->
+<section id="section12">
+  <div class="content-wrap">
+    <h1>LABORATORIO DE DOCUMENTOLOGIA FORENSE</h1>
+  <ol >
+      <li>Análisis de Documentos Cuestionados</li>
+      <li>Análisis Pericial de Firmas y Manuscritos.</li>
+      <li>Realización de Toma de Muestras Manuscriturales</li>
+    </ol>
+  </div>
+</section>
+
+<!--treceavo SEPARADOR DE 1 PULGADA -->
+<hr class="one-inch-separator">
+
+<!-- FOOTER PRINCIPAL -->
+<footer class="footer-area">
+  <!-- Parte superior (información en columnas) -->
+  <div class="footer-top">
+    <!-- Columna 1 -->
+    <div class="footer-col">
+      <h4>Oficina Principal</h4>
+      <p>Colonia Kennedy, Primera entrada</p>
+      <h5>Número telefónico</h5>
+      <p>(+504)XXXX-XXXX</p>
+      <h5>Síguenos en:</h5>
+      <div class="social-icons-inline">
+        <a href="https://www.facebook.com/dpihonduras/">
+          <img src="/pagina principal/iconos/FACE1.png" alt="Facebook">
+        </a>
+        <a href="https://x.com/dpi_honduras">
+          <img src="/pagina principal/iconos/twitter_5969020.png" alt="X (Twitter)">
+        </a>
+        <a href="#"><img src="/pagina principal/iconos/instagram_2111463.png" alt="Instagram"></a>
+        <a href="#"><img src="/pagina principal/iconos/youtube_2504965.png" alt="YouTube"></a>
+        <a href="#"><img src="/pagina principal/iconos/tik-tok.png" alt="TikTok"></a>
+      </div>
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="footer-col">
+      <h4>Links de interés</h4>
+      <ul>
+        <li>
+          <a href="https://www.google.com/maps/search/Tegucigalpa+dpi/@14.0773441,-87.2068558,14z?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D">
+            Mapa del sitio
+          </a>
+        </li>
+        <li><a href="#">Requisitos para Registro Balístico</a></li>
+        <li><a href="#">Departamento de Denuncia</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="footer-col">
+      <h4>Más enlaces</h4>
+      <ul>
+        <li><a href="https://www.mp.hn/">Ministerio Público</a></li>
+        <li><a href="https://policianacional.gob.hn/">Policía Nacional</a></li>
+        <li><a href="#">Centro Integrado</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Parte inferior -->
+  <div class="footer-bottom">
+    <p>
+      www.DPI.gob | Condiciones de uso y políticas de privacidad del sitio | Dirección Policial de Investigaciones
+    </p>
+  </div>
+
+  <!-- Barra flotante de redes (vertical, cierra con la X) -->
+  <div class="floating-social-bar">
+    <a href="https://www.facebook.com/dpihonduras/" class="social-btn fb">
+      <img src="/pagina principal/iconos/FACE1.png" alt="Facebook">
+    </a>
+    <a href="https://x.com/dpi_honduras" class="social-btn x">
+      <img src="/pagina principal/iconos/twitter_5969020.png" alt="X (Twitter)">
+    </a>
+    <a href="#" class="social-btn ig">
+      <img src="/pagina principal/iconos/instagram_2111463.png" alt="Instagram">
+    </a>
+    <a href="#" class="social-btn yt">
+      <img src="/pagina principal/iconos/youtube_2504965.png" alt="YouTube">
+    </a>
+    <a href="#" class="social-btn tk">
+      <img src="/pagina principal/iconos/tik-tok.png" alt="TikTok">
+    </a>
+    <!-- Botón de cerrar barra flotante -->
+    <a href="#" class="social-btn close">✕</a>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/Vision/jv/script.js"></script>
+</body>
+</html>

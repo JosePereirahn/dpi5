@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>DPI Portal</title>
+  <!-- Vincula tu CSS principal -->
+  <link rel="stylesheet" href="/Historia//css/styles.css">
+</head>
+<body>
+
+<!-- ENCABEZADO -->
+<header class="header">
+
+  <!-- Sección superior (logo + DPI a la izquierda, accesibilidad + 911 + DPI MÁS CERCANO + BUSCAR a la derecha) -->
+  <div class="header-top">
+    <!-- Bloque Izquierdo: Logo, barra azul, texto “DPI” -->
+    <div class="left-brand">
+      <img class="dpi-logo" src="/pagina principal/Logo de la DPI/DPI.png" alt="Logo DPI">
+      <div class="yellow-bar"></div>
+      <div class="dpi-siglas">
+        <h2>DPI</h2>
+        <span class="dpi-full-name">DIRECCION POLICIAL DE INVESTIGACIONES</span>
+      </div>
+    </div>
+
+    <!-- Bloque Derecho: Accesibilidad, 911, Botón DPI MÁS CERCANO, Menú Hamburguesa -->
+    <div class="header-options">
+      <span class="accessibility" id="btnAccesibilidad">ACCESIBILIDAD</span>
+      <span class="contact" id="btnLlamada911">📞 911</span>
+      <!-- Botón que abre el modal de “DPI MÁS CERCANO” -->
+      <button id="btnSeleccionarDPI" class="location">📍 DPI MÁS CERCANO</button>
+
+      <!-- Menú hamburguesa -->
+      <div class="menu-container">
+        <div class="menu-button" onclick="toggleMenu()">☰ BUSCAR</div>
+        <nav class="menu" id="menu">
+          <ul>
+            <li><a href="/pagina principal/index.html">Inicio</a></li>
+            <li><a href="/personas desaparesidas/buscados/indexbuscados.html">Los Más Buscados</a></li>
+            <li><a href="#">Noticias</a></li>
+            <li><a href="#">Historias</a></li>
+            <li><a href="#">Blog de Noticias</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Comunicados de Prensa</a></li>
+            <li><a href="#">Acerca de</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de navegación principal (INICIO, NOSOTROS, SERVICIOS, etc.) -->
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="/pagina principal/index.html">INICIO</a></li>
+      <li><a href="/Nosotros/index.html">NOSOTROS</a></li>
+      <li><a href="/servicios/index.html">SERVICIOS</a></li>
+      <li><a href="/personas desaparesidas/index.html">DPI BUSCA</a></li>
+      <li><a href="/Noticias/Index.html">PRENSA</a></li>
+      <li>
+        <a href="https://www.interpol.int/es/Quienes-somos/Paises-miembros/Las-Americas/HONDURAS"
+           target="_blank">
+          INTERPOL
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Barra amarilla debajo del header-top -->
+  <div class="top-bar"></div>
+
+  <!-- SECCIÓN / CONTENEDOR DONDE SE MOSTRARÁ EL MAPA INCRUSTADO -->
+  <section id="mapSection">
+    <div id="mapContainer" style="width: 100%; max-width: 800px; margin: 20px auto;"></div>
+  </section>
+
+  <!-- MODAL OVERLAY para seleccionar DPI MÁS CERCANO -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+      <h2>Selecciona tu ubicación</h2>
+
+      <label for="selectDepartamento">Departamento:</label>
+      <select id="selectDepartamento">
+        <option value="">-- Selecciona --</option>
+      </select>
+
+      <label for="selectMunicipio">Municipio/Localidad:</label>
+      <select id="selectMunicipio" disabled>
+        <option value="">-- Primero elige un departamento --</option>
+      </select>
+
+      <div class="modal-buttons">
+        <button id="btnVerMapa">Ver en Google Maps</button>
+        <button id="btnCerrarModal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<!-- SECCIÓN 1: HISTORIA -->
+<section id="section1">
+  <div class="content-wrap">
+    <h1>HISTORIA </h1>
+
+    
+
+    <!-- Subtemas -->
+    <h2>DIRECCION POLICIAL DE INVESTIGACIONES</h2>
+    <h3>El Nacimiento de la DPI: Un Hito en la Investigación Criminal de Honduras</h3> <br>
+
+    <p>
+      El 1 de septiembre de 2015 marcó un antes y un después en la historia de la seguridad en Honduras con la creación de la Dirección
+       Policial de Investigaciones (DPI). Nacida mediante el Decreto Ejecutivo PCM-063-2015, la DPI reemplazó a la Dirección Nacional de
+        Investigación Criminal (D.N.I.C.), consolidando un nuevo modelo de investigación criminal más especializado, profesional y confiable.
+         Con una visión enfocada en el fortalecimiento de la justicia y la reducción de la impunidad, la DPI inició operaciones en seis departamentos 
+         del país, incluyendo Tegucigalpa, San Pedro Sula, La Ceiba y Choluteca, con un equipo inicial de 1,000 investigadores, cinco
+          laboratorios móviles y una flota de 30 vehículos.
+    </p>
+    <p>
+      Desde sus inicios, la DPI se planteó como objetivo estructurar un servicio de investigación criminal soportado en plataformas tecnológicas 
+      y técnico-científicas. Su misión es clara: proporcionar elementos probatorios sólidos que contribuyan al proceso penal en un marco de legalidad 
+      y respeto a los derechos humanos.
+    </p><br>   
+  </div>
+</section>
+
+<!-- PRIMER SEPARADOR DE 1 PULGADA (ANTES DE VISIÓN) -->
+<hr class="one-inch-separator">
+<section id="section2">
+  <div class="content-wrap">
+
+    <h1>Expansión y Modernización, La Revolución de la Criminalística en Honduras</h1> <br>
+    <p>
+      El año 2017 representó otro avance significativo con la inauguración del primer laboratorio de criminalística en la zona norte del país. Este
+       esfuerzo fue reforzado en 2019 con la apertura de un moderno laboratorio en Tegucigalpa, considerado el mejor de Centroamérica. Con una inversión
+        de más de 5 millones de dólares provenientes de la Tasa de Seguridad Poblacional, este complejo de cuatro pisos alberga unidades de Química Forense,
+         Balística Forense, Documentología, Dactiloscopia, Video Forense, Topografía Forense y más.
+    </p>
+    <p>
+      El laboratorio de Tegucigalpa representa un salto cualitativo en la capacidad de respuesta de la DPI. Con tecnología de punta y un equipo humano capacitado
+       en países como Chile, Estados Unidos, Rusia, China, Colombia y México, ahora la recolección y análisis de pruebas se realizan con mayor rapidez y precisión.
+        Esto ha permitido reducir la mora judicial y mejorar la efectividad en la identificación de autores de delitos.
+    </p>
+   
+  </div>
+</section>
+
+<!-- sEGUNDO SEPARADOR DE 1 PULGADA (ANTES DE VISIÓN) -->
+<hr class="one-inch-separator">
+<section id="section3">
+  <div class="content-wrap">
+
+    <h1>Impacto y Resultados: Reducción de la Impunidad</h1> <br>
+    <p>
+      Los esfuerzos de modernización han comenzado a dar frutos. En los últimos años, la DPI ha fortalecido sus capacidades operativas, lo que se refleja en la 
+      judicialización de más casos y una disminución de la impunidad. Según datos oficiales, en 2018 el 30% de los hechos criminales carecían de información clave 
+      para su esclarecimiento, pero con la incorporación de los laboratorios forenses, se ha mejorado la capacidad de análisis de evidencia, especialmente en delitos 
+      relacionados con armas de fuego y documentos falsificados.
+    </p>
+    <p>
+      El impacto del nuevo sistema de investigación criminal también se ha visto reflejado en operativos como la Operación Trueno, en la cual la DPI, en conjunto con 
+      otras unidades de seguridad, logró la captura de múltiples sospechosos de narcotráfico, extorsión y homicidio en diversos departamentos del país. Además, la ampliación
+       de laboratorios en San Pedro Sula y Tegucigalpa ha permitido procesar más de 4,000 causas adicionales, incrementando las posibilidades de impartir justicia.
+    </p>
+   
+  </div>
+</section>
+
+<!--TERCER SEPARADOR DE 1 PULGADA (ANTES DE VISIÓN) -->
+<hr class="one-inch-separator">
+<section id="section1">
+  <div class="content-wrap">
+
+    <h1>Desafíos y Futuro de la DPI</h1> <br>
+    <p>
+      A pesar de los avances, aún quedan retos por superar. La criminóloga Arabesca Sánchez ha señalado la necesidad de definir con mayor claridad la distribución de responsabilidades 
+      entre la DPI y Medicina Forense, especialmente en el manejo de evidencia. Asimismo, el fortalecimiento financiero y la garantía de transparencia en la gestión de recursos siguen 
+      siendo puntos clave para el éxito continuo de la institución.
+    </p>
+    <p>
+      El criminólogo Gonzalo Sánchez ha destacado que la inmediatez en el procesamiento de evidencia es clave para reducir la impunidad. En ese sentido, la implementación de nuevas 
+      tecnologías y la capacitación constante del personal se perfilan como pilares fundamentales para consolidar a la DPI como una institución referente en la región.
+    </p>
+      <p>
+        Por su parte, la directora del Observatorio de la Violencia de la UNAH, Migdonia Ayestas, ha subrayado que el uso de fondos públicos para mejorar la investigación criminal es un 
+        esfuerzo plausible y necesario. Con la inauguración de los laboratorios científicos, se espera que las pruebas recolectadas en las escenas del crimen sean mejor documentadas, 
+        contribuyendo a la disminución de casos sin resolver.
+      </p>
+   
+  </div>
+</section>
+
+<!-- FOOTER PRINCIPAL -->
+<footer class="footer-area">
+  <!-- Parte superior (información en columnas) -->
+  <div class="footer-top">
+    <!-- Columna 1 -->
+    <div class="footer-col">
+      <h4>Oficina Principal</h4>
+      <p>Colonia Kennedy, Primera entrada</p>
+      <h5>Número telefónico</h5>
+      <p>(+504)XXXX-XXXX</p>
+      <h5>Síguenos en:</h5>
+      <div class="social-icons-inline">
+        <a href="https://www.facebook.com/dpihonduras/">
+          <img src="/pagina principal/iconos/FACE1.png" alt="Facebook">
+        </a>
+        <a href="https://x.com/dpi_honduras">
+          <img src="/pagina principal/iconos/twitter_5969020.png" alt="X (Twitter)">
+        </a>
+        <a href="#"><img src="/pagina principal/iconos/instagram_2111463.png" alt="Instagram"></a>
+        <a href="#"><img src="/pagina principal/iconos/youtube_2504965.png" alt="YouTube"></a>
+        <a href="#"><img src="/pagina principal/iconos/tik-tok.png" alt="TikTok"></a>
+      </div>
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="footer-col">
+      <h4>Links de interés</h4>
+      <ul>
+        <li>
+          <a href="https://www.google.com/maps/search/Tegucigalpa+dpi/@14.0773441,-87.2068558,14z?entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D">
+            Mapa del sitio
+          </a>
+        </li>
+        <li><a href="#">Requisitos para Registro Balístico</a></li>
+        <li><a href="#">Departamento de Denuncia</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="footer-col">
+      <h4>Más enlaces</h4>
+      <ul>
+        <li><a href="https://www.mp.hn/">Ministerio Público</a></li>
+        <li><a href="https://policianacional.gob.hn/">Policía Nacional</a></li>
+        <li><a href="#">Centro Integrado</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Parte inferior -->
+  <div class="footer-bottom">
+    <p>
+      www.DPI.gob | Condiciones de uso y políticas de privacidad del sitio | Dirección Policial de Investigaciones
+    </p>
+  </div>
+
+  <!-- Barra flotante de redes (vertical, cierra con la X) -->
+  <div class="floating-social-bar">
+    <a href="https://www.facebook.com/dpihonduras/" class="social-btn fb">
+      <img src="/pagina principal/iconos/FACE1.png" alt="Facebook">
+    </a>
+    <a href="https://x.com/dpi_honduras" class="social-btn x">
+      <img src="/pagina principal/iconos/twitter_5969020.png" alt="X (Twitter)">
+    </a>
+    <a href="#" class="social-btn ig">
+      <img src="/pagina principal/iconos/instagram_2111463.png" alt="Instagram">
+    </a>
+    <a href="#" class="social-btn yt">
+      <img src="/pagina principal/iconos/youtube_2504965.png" alt="YouTube">
+    </a>
+    <a href="#" class="social-btn tk">
+      <img src="/pagina principal/iconos/tik-tok.png" alt="TikTok">
+    </a>
+    <!-- Botón de cerrar barra flotante -->
+    <a href="#" class="social-btn close">✕</a>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/Historia/jv/script.js"></script>
+</body>
+</html>
